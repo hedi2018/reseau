@@ -1,0 +1,15 @@
+<div class="media">
+  <a class="avatar" href="#">
+    <img src="avatar/{{ imageUser }}" alt="...">
+  </a>
+<div class="media-body">
+  <p>
+    <a href="#"><strong>{{ user }}</strong></a>
+    <time class="float-right text-fade" datetime="{{ date }}">25 Jan</time>
+    </p>
+    <p>{{ text }}<br><br>
+    {% if imageId != null %}
+      <img alt="Card image cap" src="user/images/{{ user }}/comment/{{ imageId }}" width="300" height="300" style="cursor:pointer">
+    {% endif %}
+    </p>
+</div>

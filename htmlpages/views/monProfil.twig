@@ -1,0 +1,197 @@
+<div class="row">
+        <div class="col-xl-4 col-lg-5">
+
+          <!-- Profile Image -->
+          <div class="box">
+            <div class="box-body box-profile">
+              <img class="profile-user-img rounded-circle img-fluid mx-auto d-block" src="avatar/{{ userImage }}" alt="User profile picture">
+
+              <h3 class="profile-username text-center">{{ users }}</h3>
+
+              <div class="row">
+              	<div class="col-12">
+              		<div class="profile-user-info">
+						<p>Adresse e-mail </p>
+						<h6 class="margin-bottom">{{ userEmail }}</h6>
+						<p class="margin-bottom">Profil social</p>
+						<div class="user-social-acount">
+							<button class="btn btn-circle btn-social-icon btn-facebook"><i class="fa fa-facebook"></i></button>
+							<button class="btn btn-circle btn-social-icon btn-twitter"><i class="fa fa-twitter"></i></button>
+							<button class="btn btn-circle btn-social-icon btn-instagram"><i class="fa fa-instagram"></i></button>
+						</div>
+					</div>
+             	</div>
+              </div>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-xl-8 col-lg-7">
+          <div class="nav-tabs-custom">
+            <ul class="nav nav-tabs">
+
+              <li><a class="active" href="#timeline" data-toggle="tab">Chronologie</a></li>
+              <li><a href="#activity" data-toggle="tab">Activités</a></li>
+            </ul>
+
+            <div class="tab-content">
+
+             <div class="active tab-pane" id="timeline">
+               {% for user in posts %}
+               <div class="col-lg-12 postCRUD{{ user._id}}">
+                 <div class="box">
+                   <div class="box-body">
+                     <div class="fa fa-child float-right dropdown-toggle" data-toggle="dropdown"></div>
+                       <div class="dropdown-menu dropdown-menu-right">
+                         <a class="dropdown-item modifierPoste modifierPoste{{ u._id}}" rel="{{ user._id}}" style="cursor:pointer">Modifier</a>
+    								     <a class="dropdown-item supprimerPost supprimerPost{{ u._id}}" rel="{{ user._id}}" style="cursor:pointer">Supprimer</a>
+                       </div>
+                     <p class="textpostAdded textpostAdded{{ user._id}}">{{ user.text }}</p>
+                   </div>
+                   {% if user.image != null %}
+                   <div class="row gap-1 popup-gallery" data-provide="photoswipe">
+                     <a href="user/images/{{ users }}/{{ user.image}}" class="col-8" title="{{ user.text }}" style="text-align: center;">
+                       <img src="user/images/{{ users }}/{{ user.image}}" alt="..." class="imagePostAdded imagePost img-responsive">
+                     </a>
+                   </div>
+                   {% endif %}
+                  </div>
+                </div>
+                   {% endfor %}
+              </div>
+              <!-- /.tab-pane -->
+
+              <div class="tab-pane" id="activity">
+                <!-- Post -->
+                <div class="post">
+                  <div class="user-block">
+                    <img class="img-bordered-sm rounded-circle" src="../../../images/user1-128x128.jpg" alt="user image">
+                        <span class="username">
+                          <a href="#">John Doe</a>
+                          <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
+                        </span>
+                    <span class="description">5 minutes ago</span>
+                  </div>
+                  <!-- /.user-block -->
+                  <div class="activitytimeline">
+					  <p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum.
+					  </p>
+					  <ul class="list-inline">
+						<li><a href="#" class="link-black text-sm"><i class="fa fa-share margin-r-5"></i> Share</a></li>
+						<li><a href="#" class="link-black text-sm"><i class="fa fa-thumbs-o-up margin-r-5"></i> Like</a>
+						</li>
+						<li class="pull-right">
+						  <a href="#" class="link-black text-sm"><i class="fa fa-comments-o margin-r-5"></i> Comments
+							(5)</a></li>
+					  </ul>
+					  <form class="form-element">
+						  <input class="form-control input-sm" type="text" placeholder="Type a comment">
+					 </form>
+                  </div>
+                </div>
+                <!-- /.post -->
+
+                <!-- Post -->
+                <div class="post">
+                  <div class="user-block">
+                    <img class="img-bordered-sm rounded-circle" src="../../../images/user6-128x128.jpg" alt="user image">
+                        <span class="username">
+                          <a href="#">John Doe</a>
+                          <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
+                        </span>
+                    <span class="description">5 minutes ago</span>
+                  </div>
+                  <!-- /.user-block -->
+                  <div class="activitytimeline">
+					  <div class="row margin-bottom">
+						<div class="col-sm-6">
+						  <img class="img-fluid" src="../../../images/photo1.png" alt="Photo">
+						</div>
+						<!-- /.col -->
+						<div class="col-sm-6">
+						  <div class="row">
+							<div class="col-sm-6">
+							  <img class="img-fluid" src="../../../images/photo2.png" alt="Photo">
+							  <br><br>
+							  <img class="img-fluid" src="../../../images/photo3.jpg" alt="Photo">
+							</div>
+							<!-- /.col -->
+							<div class="col-sm-6">
+							  <img class="img-fluid" src="../../../images/photo4.jpg" alt="Photo">
+							  <br><br>
+							  <img class="img-fluid" src="../../../images/photo1.png" alt="Photo">
+							</div>
+							<!-- /.col -->
+						  </div>
+						  <!-- /.row -->
+						</div>
+						<!-- /.col -->
+					  </div>
+					  <!-- /.row -->
+
+					  <ul class="list-inline">
+						<li><a href="#" class="link-black text-sm"><i class="fa fa-share margin-r-5"></i> Share</a></li>
+						<li><a href="#" class="link-black text-sm"><i class="fa fa-thumbs-o-up margin-r-5"></i> Like</a>
+						</li>
+						<li class="pull-right">
+						  <a href="#" class="link-black text-sm"><i class="fa fa-comments-o margin-r-5"></i> Comments
+							(5)</a></li>
+					  </ul>
+
+					  <form class="form-element">
+						  <input class="form-control input-sm" type="text" placeholder="Type a comment">
+					 </form>
+					</div>
+				</div>
+                <!-- /.post -->
+
+                <!-- Post -->
+                <div class="post clearfix">
+                  <div class="user-block">
+                    <img class="img-bordered-sm rounded-circle" src="../../../images/user7-128x128.jpg" alt="user image">
+                        <span class="username">
+                          <a href="#">John Doe</a>
+                          <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
+                        </span>
+                    <span class="description">5 minutes ago</span>
+                  </div>
+                  <!-- /.user-block -->
+                    <div class="activitytimeline">
+					  <p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum.
+					  </p>
+
+					  <form class="form-horizontal form-element">
+						<div class="form-group row no-gutters">
+						  <div class="col-sm-9">
+							<input class="form-control input-sm" placeholder="Response">
+						  </div>
+						  <div class="col-sm-3">
+							<button type="submit" class="btn btn-danger pull-right btn-block btn-sm">Send</button>
+						  </div>
+						</div>
+					  </form>
+					</div>
+                </div>
+                <!-- /.post -->
+
+              </div>
+              <!-- /.tab-pane -->
+
+              <!-- /.tab-pane -->
+            </div>
+            <!-- /.tab-content -->
+          </div>
+          <!-- /.nav-tabs-custom -->
+        </div>
+        <!-- /.col -->
+      </div>
+<link href="vendor_components/Magnific-Popup-master/dist/magnific-popup.css" rel="stylesheet">
+<script src="vendor_components/Magnific-Popup-master/dist/jquery.magnific-popup.min.js"></script>
+<script src="vendor_components/Magnific-Popup-master/dist/jquery.magnific-popup-init.js"></script>
+<script src="js/functions/modifierSupprimer.js"></script>
+<link href="vendor_components/sweetalert/sweetalert.css" rel="stylesheet" type="text/css">
+<script src="vendor_components/sweetalert/sweetalert.min.js"></script>
